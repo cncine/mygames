@@ -84,23 +84,32 @@
     </head>
 
     <body>
-		<div class="cover_div" onclick="this.style.display = 'none';">
+		<div class="cover_div">
 			<p>
 				游戏名称：无限循环，游戏灵感：SCP087，游戏作者：薛森禅<br />
 				这已经是第三个版本了，增加了屏幕操作。游戏内容是探索无尽的楼梯间<br />
 				tips：微恐怖，胆小就不要玩了。<br />
-				键盘操作：空格开关手电筒，方向键移动，亦可触屏或鼠标操作，点击开始。
+				键盘操作：空格开关手电筒，方向键移动，亦可触屏或鼠标操作。<br /> 
+				正在加载中......
 			</p>
 		</div>
         <div class="gm4html5_div_class" id="gm4html5_div_id">
             <!-- Create the canvas element the game draws to -->
-            <canvas id="canvas" width="352" height="352"  style="position: absolute; top: 50%; left: 50%; bottom: -50%; right: -50%; transform: translate(-50%, -50%); height: 100vmin; image-rendering: pixelated;" >
+            <canvas id="canvas" width="352" height="352"  style="position: absolute; top: 50%; left: 50%; bottom: -50%; right: -50%; transform: translate(-50%, -50%);height: 100vmin;image-rendering: pixelated;" >
                      <p>Your browser doesn't support HTML5 canvas.</p>
             </canvas>
         </div>
 
         <!-- Run the game code -->
-        <script type="text/javascript" src="html5game/infiniteLoop2021.js?MMYYB=1766850188"></script>
-        <script>window.onload = GameMaker_Init;</script>
+        <script type="text/javascript" src="html5game/infiniteLoop2021.js?QDNAC=1434715495"></script>
+        <script>window.onload =  function () {
+			var get_dom = document.getElementsByClassName("cover_div")[0];
+			get_dom.innerHTML = get_dom.innerHTML.replace("正在加载中......", "点击开始");
+			get_dom.onclick = function () {
+				GameMaker_Init();
+				this.style.display = "none";
+			}
+		}
+		</script>
     </body>
 </html>
