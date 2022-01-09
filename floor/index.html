@@ -80,6 +80,29 @@
 				z-index: 1;
 				color: #000000;
 			}
+			.text_loading {
+				position: absolute;
+				top: 50%;
+				left: 50%; 
+				bottom: -50%; 
+				right: -50%;
+				transform: translate(-50%, -50%);
+				display: flex;
+				width: 100vmin;
+				height: 100vmin;
+				overflow: hidden;
+				justify-content: center;
+				align-items: center;
+				color: white;
+			}
+			.text_loading>i {
+				display: inline-block;
+				height: 1.2rem;
+				width: 1.2rem;
+				background-image: url("data:image/gif;base64,R0lGODlhIAAgAIAAAAsJDP///yH/C05FVFNDQVBFMi4wAwEAAAAh+QQECAAAACwAAAAAIAAgAAACVYSPqcvtD6OclIWKgtb5YrCFnxJuD3eWXmM66mrBcTmSYm3LdYt3fP+q3AxByhCkEqIOxR7y54yepMwjLpnSJbAs65ZW/UJzS+t4sSR6d+tRm00dFQAAIfkEBAgAAAAsAQABAB0AHgAAAk+Ejxcb6e8YgzRJWfOdWfG9dMYGgI0IlhcSQqnaetQrPmQ9c/jOw72N+XlWvAkN9wkKh8umsxlzKjW5qSvKIlZ0Fuv1BASPuEvvz9xDPykFACH5BAQIAAAALAEAAQAcAB0AAAJPhI+pyxkfmkQQzlntiU2D/BjZMn6gWW7nCnJqqrXuGzKykpLn1VX8DwyKPEJaTcjZIZPE4nDmjEqnVAo06rs0jdqjY2u7qnRVlHjplaYVBQAh+QQECAAAACwCAAIAHgAcAAACT4SPFxvp/xiDNMpWY7pY1qt4AEeBITaS1lSqjglx6Ltkbmaz+H7yuKrzyQwi4bDIkzWQOyVxlrz5Nsyp9YrNPqGlX63JpYa14XE2qA2l0wUAIfkEBAgAAAAsAwACAB0AGwAAAk6Ejxab7b7imzAGio+9mj2LgJ1UedNmhuSJfqm7ZpQo17b83smmN+gVq/0ANGEriGv1VMhlTldcEnlShdL3HFGxHNjWlxlWr7auNVttFAAAIfkEBAgAAAAsAwACABwAHgAAAkyEj6nLGB+adDDOWy9+KS+4gYonVdx4lqTGrOwLx/LcioAVm5H96nfaM9EOwqGBZzQWhz6aDteBFp+taIYaEi4nTwtS1ZRhndvZd1EAACH5BAQIAAAALAQAAwAbAB0AAAJNhI8Qke2+2Jst0ntsWlPi6CHaBULcN2JdqLbuC8coG4OpazO0msvZLTv5VkBcj1IS5XYG22bZFEJ/veMx6pw6n6WpQljxeGtbX3L4KgAAIfkEBAgAAAAsAQADAB4AHAAAAk6Ej6nLHN+ig7KisLDdT0cvdRX4UduJpurZmavRiqoXu1YL1Paoxymeq80owldCZswgk8XG8thUPg+60hTWXPomwG3wSpVFc0Ov0XwGJwoAOw==");
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
         </style>
     </head>
 
@@ -93,6 +116,10 @@
 				正在加载中......
 			</p>
 		</div>
+		<div class="text_loading">
+			游戏加载中请稍后<i></i>
+		</div>
+		
         <div class="gm4html5_div_class" id="gm4html5_div_id">
             <!-- Create the canvas element the game draws to -->
             <canvas id="canvas" width="352" height="352"  style="position: absolute; top: 50%; left: 50%; bottom: -50%; right: -50%; transform: translate(-50%, -50%);height: 100vmin;image-rendering: pixelated;" >
@@ -101,15 +128,24 @@
         </div>
 
         <!-- Run the game code -->
-        <script type="text/javascript" src="html5game/infiniteLoop2021.js?QDNAC=1434715495"></script>
-        <script>window.onload =  function () {
-			GameMaker_Init();
-			var get_dom = document.getElementsByClassName("cover_div")[0];
-			get_dom.innerHTML = get_dom.innerHTML.replace("正在加载中......", "点击开始");
-			get_dom.onclick = function () {
-				this.style.display = "none";
+        <script type="text/javascript" src="html5game/infiniteLoop2021.js?GZPAC=679142579"></script>
+        <script>
+		var html_title_bgm = new Audio("./html5game/sou_title_bgm.ogg");
+		html_title_bgm.loop = true;
+		window.onload = function () {
+        	GameMaker_Init();
+        	var get_dom = document.getElementsByClassName("cover_div")[0];
+        	get_dom.innerHTML = get_dom.innerHTML.replace("正在加载中......", "点击开始");
+        	get_dom.onclick = function () {
+				html_title_bgm.play();
+        		this.style.display = "none";
+        	}
+			document.getElementById("canvas").onclick = function () {
+				if (!html_title_bgm.paused) {
+					html_title_bgm.pause();
+				}
 			}
-		}
-		</script>
+        }
+        </script>
     </body>
 </html>
