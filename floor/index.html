@@ -103,10 +103,10 @@
         <!-- Run the game code -->
         <script type="text/javascript" src="html5game/infiniteLoop2021.js?QDNAC=1434715495"></script>
         <script>window.onload =  function () {
+			GameMaker_Init();
 			var get_dom = document.getElementsByClassName("cover_div")[0];
 			get_dom.innerHTML = get_dom.innerHTML.replace("正在加载中......", "点击开始");
 			get_dom.onclick = function () {
-				GameMaker_Init();
 				this.style.display = "none";
 			}
 		}
