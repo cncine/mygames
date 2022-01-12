@@ -41,7 +41,8 @@ main.floors.sample0=
             ],
             "direction": "down"
         }
-    ]
+    ],
+    "8,3": null
 },
 "changeFloor": {},
 "afterBattle": {},
