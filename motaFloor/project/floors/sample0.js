@@ -13,7 +13,7 @@ main.floors.sample0=
     [  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2],
     [  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2],
     [  2,  2, 87,  2,  2,  2,  2,  2,  2,  2,  2,  2,  2],
-    [  2,  2,  0,  0,  0,  0,  0,  0,  0,  0,  0,  2,  2],
+    [  2,  2,  0,  0,  0,  0,  0,  0,  0,997,  0,  2,  2],
     [  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  0,  2,  2],
     [  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  0,  2,  2],
     [  2,  2,  2,  2,  2,  2,  2,  2,  2,  2,  0,  2,  2],
@@ -42,7 +42,31 @@ main.floors.sample0=
             "direction": "down"
         }
     ],
-    "8,3": null
+    "8,3": {
+        "trigger": null,
+        "enable": false,
+        "noPass": null,
+        "displayDamage": false,
+        "data": [
+            {
+                "type": "if",
+                "condition": "!flag:seeBlood",
+                "true": [
+                    {
+                        "type": "setValue",
+                        "name": "flag:seeBlood",
+                        "value": "true"
+                    },
+                    "薛阳：\n这是，血！这里究竟发生了什么？",
+                    {
+                        "type": "hide"
+                    }
+                ],
+                "false": []
+            }
+        ]
+    },
+    "7,9": null
 },
 "changeFloor": {},
 "afterBattle": {},
