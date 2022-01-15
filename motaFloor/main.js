@@ -4,13 +4,13 @@ function main() {
 
     this.version = "2.1.1"; // 游戏版本号；如果更改了游戏内容建议修改此version以免造成缓存问题。
 
-    this.useCompress = true; // 是否使用压缩文件
+    this.useCompress = false; // 是否使用压缩文件
     // 当你即将发布你的塔时，请使用“JS代码压缩工具”将所有js代码进行压缩，然后将这里的useCompress改为true。
     // 请注意，只有useCompress是false时才会读取floors目录下的文件，为true时会直接读取libs目录下的floors.min.js文件。
     // 如果要进行剧本的修改请务必将其改成false。
 
-    this.bgmRemote = false; // 是否采用远程BGM
-    this.bgmRemoteRoot = "https://gitee.com/ckcz123/h5music/raw/master/"; // 远程BGM的根目录
+    this.bgmRemote = true; // 是否采用远程BGM
+    this.bgmRemoteRoot = "https://xuesenchan.gitee.io/cloud-media/file/"; // 远程BGM的根目录
 
     //------------------------ 用户修改内容 END ------------------------//
 
